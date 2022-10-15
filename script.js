@@ -4,31 +4,19 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection == 'rock') {
-        if (computerSelection == 'paper') {
-            return (['Rock loses to paper. Computer wins!', 1]);
-        } else if (computerSelection == 'scissors') {
-            return (['Rock wins to scissors. Player wins!', 0]);
-        } else {
-            return (['Rock ties with rock. Draw!', 2]);
-        }
-    } else if (playerSelection == 'paper') {
-        if (computerSelection == 'rock') {
-            return (['Paper wins to rock. Player wins!', 0])
-        } else if (computerSelection == 'scissors') {
-            return (['Paper loses to scissors. Computer wins!', 1]);
-        } else {
-            return (['Paper ties with paper. Draw!', 2]);
-        }
-    } else {
-        if (computerSelection == 'rock') {
-            return (['Scissors lose to rock. Computer wins!', 1]);
-        } else if (computerSelection == 'paper') {
-            return (['Scissors win to paper. Player wins!', 0]);
-        } else {
-            return (['Scissors tie with scissors. Draw!', 2]);
-        }
+    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+    computerSelection = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+    if (playerSelection == computerSelection) {
+        return ([`${playerSelection} ties with ${computerSelection}. Draw!`, 2])
     }
+    if (playerSelection == 'rock' && computerSelection == 'scissors') {
+        return (['Rock wins to scissors. Player wins!', 0]);
+    } else if (playerSelection == 'paper' && computerSelection == 'rock') {
+        return (['Paper wins to rock. Player wins!', 0])
+    } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+        return (['Scissors win to paper. Player wins!', 0]);
+    } 
+    return ([`${playerSelection} loses to ${computerSelection}. Computer wins!`, 1])
 }
 
 function playerPlay() {
