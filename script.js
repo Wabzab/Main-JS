@@ -1,15 +1,6 @@
 function computerPlay() {
     let selection = Math.floor(Math.random()*3);
-    switch (selection) {
-        case 0:
-            return('rock');
-            break;
-        case 1:
-            return('paper')
-            break;
-        case 2:
-            return('scissors')
-    }
+    return(validPlays[selection]);
 }
 
 function playRound(playerSelection, computerSelection) {
